@@ -1,0 +1,52 @@
+.alto-100{
+    height: 100%;
+}
+
+
+/*.table, form{
+    border: rgb(3, 1, 1) 5px solid;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgb(0,0,0,0.16), 0 3px 6px rgb(0,0,0,0.23);
+    padding: 1rem;
+    background-color: #676cb4;
+
+}
+.texto
+{
+font-weight: bold;
+}
+
+.pie-pagina{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+*/
+.logo{
+    width: 5rem;
+}
+
+/*.bd-placeholder-img 
+{
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) 
+{
+    .bd-placeholder-img-lg 
+    {
+    font-size: 3.5rem;
+    }
+}
+*/
+
+.titulo-principal{
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(144, 144, 144);
+    margin-bottom: auto;
+}
