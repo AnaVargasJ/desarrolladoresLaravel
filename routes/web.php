@@ -16,5 +16,5 @@ Route::get('/', function () {
 
 // Route::get('/proyectos/{id}', [ProyectoController::class, 'show'])->name('verProyecto');
 
-Route::resource('proyectos', ProyectoController::class);
+//Route::resource('proyectos', ProyectoController::class);
 Route::resource('desarrolladores', DesarrolladorController::class);

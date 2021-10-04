@@ -27,7 +27,7 @@
             <td>
                 <a href="{{ route('desarrolladores.show', $desarrollador->id) }}" class="btn btn-info">Ver Detalles</a>
                 <a href="{{ route('desarrolladores.edit', $desarrollador->id) }}" class="btn btn-info">Editar</a>
-                <form action="{{ route('desarrolladores.destroy' $desarrollador->id) }}" class="d-inline-flex"></form>
+                <form action="{{ route('desarrolladores.destroy' $desarrollador->id) }}" class="d-inline-flex" method="post"></form>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger"

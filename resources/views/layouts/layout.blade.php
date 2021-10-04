@@ -28,8 +28,7 @@
                             Proyectos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropProyectos">
-                            <li><a class="dropdown-item" href="{{ route('proyectos.index') }}">Listar</a>
-                            </li>
+                            <li><a class="dropdown-item" href="{{ route('proyectos.index') }}">Listar</a></li>
                             <li><a class="dropdown-item" href="{{ route('proyectos.create') }}">Crear nuevo</a></li>
                         </ul>
                     <li class="nav-item dropdown">

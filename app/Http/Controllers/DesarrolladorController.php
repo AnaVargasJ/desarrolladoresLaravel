@@ -17,6 +17,8 @@ class DesarrolladorController extends Controller
     {
         $desarrolladores = Desarrollador::orderBy('nombre', 'asc')->get();
         return view('desarrolladores.index', compact('desarrolladores'));
+
+
     }
 
     /**
@@ -28,6 +30,7 @@ class DesarrolladorController extends Controller
     {
         $proyecto = Proyecto::orderBy('nombre', 'asc')->get();
         return view('desarrolladores.insert', compact('proyectos'));
+        
     }
 
     /**
@@ -56,9 +59,14 @@ class DesarrolladorController extends Controller
      * @param  \App\Models\Desarrollador  $desarrollador
      * @return \Illuminate\Http\Response
      */
-    public function show(Desarrollador $desarrollador)
+    public function show($id)
     {
-        //
+        $desarrollador = Desarrollador::join('proyectos','desarrolladores.proyectoId', '=', 'proyectos.Id')//une la tabla desarrollador con la tabla proyecto atravez de l os campos de desarrollador con los campos de proyecto
+                                        ->select('desarrolladores.*','proyectos.nombre as nombreProyecto')//*selecciona todos los campos que se elijan de la tabla
+                                        ->where('desarrolladores.id', '=', $id)
+                                        ->first();
+        //echo $desarrollador;
+        return view('desarrolladores.view', compact('desarrollador'));
     }
 
     /**
@@ -67,9 +75,11 @@ class DesarrolladorController extends Controller
      * @param  \App\Models\Desarrollador  $desarrollador
      * @return \Illuminate\Http\Response
      */
-    public function edit(Desarrollador $desarrollador)
+    public function edit($id)
     {
-        //
+        $desarrollador = Desarrollador::findOrFail($id);
+        $proyectos = Proyecto::orderBy('nombre', 'asc')->get();
+        return view('desarrolladores.edit', compact('desarrollador', 'proyectos'));
     }
 
     /**
@@ -81,7 +91,18 @@ class DesarrolladorController extends Controller
      */
     public function update(Request $request, Desarrollador $desarrollador)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'proyectoId' => 'required'
+            
+        ]);
+
+        $desarrollador = Desarrollador::findOrFail($id);
+        $desarrollador->update(($request->all());
+        return redirect()->route('desarrolladores.index')->with('exito','se ha modificado los datos del desarrollador exitosamente');
     }
 
     /**
@@ -90,8 +111,10 @@ class DesarrolladorController extends Controller
      * @param  \App\Models\Desarrollador  $desarrollador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Desarrollador $desarrollador)
+    public function destroy($id)
     {
-        //
+        $desarrollador = Desarrollador::findOrFail($id);
+        $desarrollador->delete();
+        return redirect()->('desarrolladores.index')->with('exito','se ha eliminado el desarrollador exitosamente');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDesarrolladorsTable extends Migration
+class CreateDesarrolladoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,7 +19,7 @@ class CreateDesarrolladorsTable extends Migration
             $table->string('apellido');
             $table->string('telefono');
             $table->string('direccion');
-            $table->foreignId('proyectoId')->constrained('proyectos'); 
+            $table->foreignId('proyectoId')->constrained('proyectos'); //enlaza proyectoid por dentro de desarrolladores
             $table->timestamps();
         });
     }
